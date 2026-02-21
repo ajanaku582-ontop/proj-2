@@ -54,7 +54,7 @@ resource "aws_instance" "app" {
 }
 
 # Bastion Node
-resource "aws_instance" "Bastion" {
+resource "aws_instance" "bastion" {
   ami                    = var.ami_id
   instance_type          = "c7i-flex.large"
   key_name               = var.key_name

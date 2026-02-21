@@ -13,7 +13,7 @@ provider "aws" {
 
 resource "aws_instance" "bastion" {
   ami                         = var.ami_id
-  instance_type               = "t3.micro"
+  instance_type               = "c7i-flex.large"
   subnet_id                   = aws_subnet.public.id
   key_name                    = var.key_name
   vpc_security_group_ids      = [aws_security_group.bastion_sg.id]
@@ -26,7 +26,7 @@ resource "aws_instance" "bastion" {
 
 resource "aws_instance" "app" {
   ami                   = var.ami_id
-  instance_type          = "t3.micro"
+  instance_type          = "c7i-flex.large"
   subnet_id              = aws_subnet.private.id
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.app_sg.id]

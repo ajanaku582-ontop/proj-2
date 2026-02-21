@@ -25,7 +25,7 @@ resource "aws_instance" "bastion" {
 }
 
 resource "aws_instance" "app" {
-  ami                    = var.ami_id
+  ami                   = var.ami_id
   instance_type          = "t3.micro"
   subnet_id              = aws_subnet.private.id
   key_name               = var.key_name

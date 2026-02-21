@@ -140,9 +140,11 @@ resource "aws_iam_role" "flow_logs_role" {
   })
 }
 
-resource "aws_vpc_flow_log" "main" {
-  vpc_id          = aws_vpc.main.id
-  log_destination = aws_cloudwatch_log_group.vpc_logs.arn
-  traffic_type    = "ALL"
-  iam_role_arn    = aws_iam_role.flow_logs_role.arn
+resource "aws_flow_log" "main" {
+  iam_role_arn         = aws_iam_role.flow_logs_role.arn
+  log_destination      = aws_cloudwatch_log_group.vpc_logs.arn
+  log_destination_type = "cloud-watch-logs"
+
+  traffic_type = "ALL"
+  vpc_id       = aws_vpc.main.id
 }

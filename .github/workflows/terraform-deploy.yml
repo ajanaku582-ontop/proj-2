@@ -41,8 +41,8 @@ jobs:
       working-directory: terraform
       run: |
         cat <<EOF > terraform.tfvars
-        ami   = "${{ secrets.TF_VAR_ami_id }}"
-        key_name = "${{ secrets.TF_VAR_key_name }}"
+        ami   = "${{ secrets.TF_VAR_AMI_ID }}"
+        key_name = "${{ secrets.TF_VAR_KEY_NAME }}"
         db_password = "${{ secrets.TF_VAR_DB_PASSWORD }}"
         EOF
 

@@ -41,27 +41,27 @@ resource "aws_security_group" "server_sg" {
   }
 }
 
-# Java Node
-resource "aws_instance" "java" {
+# App Node
+resource "aws_instance" "app" {
   ami                    = var.ami_id
   instance_type          = "c7i-flex.large"
   key_name               = var.key_name
-  vpc_security_group_ids = [aws_security_group.server_sg.id]
+  vpc_security_group_ids = [aws_security_group.app_sg.id]
 
   tags = {
-    Name = "Java-Node"
+    Name = "App-Node"
   }
 }
 
-# Nginx Node
-resource "aws_instance" "nginx" {
+# Bastion Node
+resource "aws_instance" "Bastion" {
   ami                    = var.ami_id
   instance_type          = "c7i-flex.large"
   key_name               = var.key_name
-  vpc_security_group_ids = [aws_security_group.server_sg.id]
+  vpc_security_group_ids = [aws_security_group.bastion_sg.id]
 
   tags = {
-    Name = "Nginx-Node"
+    Name = "Bastion-Node"
   }
 }
 

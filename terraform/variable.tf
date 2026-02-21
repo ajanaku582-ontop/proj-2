@@ -1,14 +1,16 @@
 variable "ami_id" {
-  description = "AMI ID to use for all instances"
   type        = string
-  default         = "ami-09256c524fab91d36"
+  description = "The AMI ID to use for the instances"
+  default     = "ami-09040d770ffe2224f" # Amazon Linux 2023 in us-east-2
 }
 
 variable "key_name" {
-  description = "EC2 key pair name for SSH access"
   type        = string
+  description = "The name of the AWS Key Pair to use"
 }
 
 variable "db_password" {
-  type = string
+  type        = string
+  description = "Password for the RDS instance"
+  sensitive   = true
 }

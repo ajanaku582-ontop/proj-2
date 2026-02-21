@@ -43,6 +43,7 @@ jobs:
         cat <<EOF > terraform.tfvars
         ami   = "${{ secrets.TF_VAR_ami_id }}"
         key_name = "${{ secrets.TF_VAR_key_name }}"
+        db_password = "${{ secrets.TF_VAR_DB_PASSWORD }}"
         EOF
 
     - name: Terraform Init
